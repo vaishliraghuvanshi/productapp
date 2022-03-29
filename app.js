@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://vaishali:Vaishali%40123@cluster0.iqght.mongodb.net/productapi?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://vaishali:root@cluster0.iqght.mongodb.net/productapi?retryWrites=true&w=majority")
 const cors = require('cors');
 const bodyparser = require('body-parser');
 
 
 const app = express();
-
+const port = process.env.PORT|| 3000
 
 
 app.use(cors());
@@ -19,6 +19,6 @@ app.use(bodyparser.json());
 app.use(cors());
 const userRouter = require('./routes/userroute');
 app.use("/user", userRouter);
-app.listen(3000, () => {
+app.listen(port ,() => {
     console.log("server is running");
 })
