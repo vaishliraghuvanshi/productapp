@@ -13,7 +13,7 @@ exports.signup = (request, response) => {
         console.log(result);
         return response.status(201).json(result);
     }).catch(err => {
-        return response.status(500).json("internal server error");
+        return response.status(500).json({err:"internal server error"});
     });
 
 }
