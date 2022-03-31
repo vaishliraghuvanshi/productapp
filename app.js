@@ -16,7 +16,7 @@ app.use(bodyparser.json());
 
 
 
-app.use(cors());
+
 const userRouter = require('./routes/userroute');
 app.use("/user", userRouter);
 app.listen(port ,() => {
