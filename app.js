@@ -17,7 +17,9 @@ app.use(bodyparser.json());
 
 
 const userRouter = require('./routes/userroute');
+const categoryRouter =require('./routes/categoryroute');
 app.use("/user", userRouter);
+app.use("/category",categoryRouter);
 app.listen(port ,() => {
     console.log("server is running");
 })
