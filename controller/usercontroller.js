@@ -24,6 +24,8 @@ exports.signin= (request,response) =>{
     })
         .then(result => {
             if (result) {
+                let payload={subject:result._id};
+                let token=jwt.signin(payload,"aaabbbccc");
                 console.log(result);
                 return response.status(200).json({status:"login success",currentuser:result});
             }
