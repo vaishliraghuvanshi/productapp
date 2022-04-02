@@ -1,5 +1,6 @@
 const Category = require('../model/category');
 const { validationResult } = require('express-validator');
+const  middleware=require('../middleware/token_verification');
 exports.deleteCategory = (request, response) => {
     Category.deleteOne({ _id: request.params.id })
         .then(result => {
