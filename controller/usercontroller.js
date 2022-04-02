@@ -30,8 +30,11 @@ exports.signin= (request,response) =>{
                 console.log(result);
                 return response.status(200).json({status:"login success",currentuser:result,token:token});
             }
+            else{
+                return response.status(200).json({status:"login failed"});
+            }
         }).catch(err => {
-            return response.status(500).json({ status:"login failed" });
+            return response.status(500).json("internal server error");
         })
 }
     
