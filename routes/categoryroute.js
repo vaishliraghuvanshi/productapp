@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const categoryController = require('../controller/categorycontroller');
 const { body } = require('express-validator');
+const  middleware=require('../middleware/token_verification');
 const multer = require('multer');
 var storage = multer.diskStorage(
     {
@@ -13,7 +14,7 @@ var storage = multer.diskStorage(
 );
 var upload = multer({ storage: storage });
 router.post("/add", upload.single('categoryImage'),
-    body('categoryName').not().isEmpty(),
+    body('categoryName').not().isEmpty(),middleware.verifyToken(),
     categoryController.add
 );
 router.get("/category-list",categoryController.getCategory);
