@@ -13,7 +13,7 @@ var storage = multer.diskStorage(
     }
 );
 var upload = multer({ storage: storage });
-router.post("/add",upload.single('categoryImage'),middleware.verifyToken,
+router.post("/add",upload.single('categoryImage'),
     body('categoryName').not().isEmpty(),
     categoryController.add
 );
