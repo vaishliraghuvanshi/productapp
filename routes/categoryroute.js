@@ -17,7 +17,7 @@ router.post("/add",upload.single('categoryImage'),middleware.verifyToken,
     body('categoryName').not().isEmpty(),
     categoryController.add
 );
-router.get("/category-list", middleware.verifyToken,
+router.get("/category-list", 
 categoryController.getCategory);
 
 
