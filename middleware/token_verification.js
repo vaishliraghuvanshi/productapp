@@ -7,13 +7,13 @@ exports.verifyToken = (request, response, next) => {
         if(request.headers.authorization==null)
           return response.status(401).send('unauthorized request');
           
-        let token=request.headers.authorization.split(" ")[1];
+        let token=request.headers.authorization;
         let payload=jwt.verify(token,'aaabbbccc');
         console.log(payload);
         next();    
     }
     catch(err){
-        // console.log(response);
+        console.log("hello...");
         return response.status(401).send('unauthorized Request');
     }
 }
