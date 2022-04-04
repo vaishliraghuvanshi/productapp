@@ -3,9 +3,9 @@ exports.verifyToken = (request, response, next) => {
     try {
         console.log('token ' + request.headers.authorization);
         if (!request.headers.authorization)
-          return response.status(200).send('unauthorized request');
+          return response.status(200).json({message:'unauthorized request'});
         if(request.headers.authorization==null)
-          return response.status(200).send('unauthorized request');
+          return response.status(200).json({message:'unauthorized request'});
           
         let token=request.headers.authorization;
         let payload=jwt.verify(token,'aaabbbccc');
