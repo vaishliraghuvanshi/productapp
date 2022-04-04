@@ -30,7 +30,7 @@ exports.update = (request, response, next) => {
         {
             $set: {
                 categoryName: request.body.categoryName,
-                categoryImageUrl: "http://product-app-byvaishali.herokuapp.com/images/" + request.file.filename
+                categoryImageUrl: "https://product-app-byvaishali.herokuapp.com/images/" + request.file.filename
             }
         }).then(result => {
             if (result.modifiedCount){
@@ -52,7 +52,7 @@ exports.add = (request, response, next) => {
     Category.create({
 
         categoryName: request.body.categoryName,
-       categoryImageUrl: "http://product-app-byvaishali.herokuapp.com/images/" + request.file.filename
+       categoryImageUrl: "https://product-app-byvaishali.herokuapp.com/images/" + request.file.filename
     })
         .then(result => {
             return response.status(201).json(result);
