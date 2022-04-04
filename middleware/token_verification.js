@@ -14,6 +14,6 @@ exports.verifyToken = (request, response, next) => {
     }
     catch(err){
         console.log("hello...");
-        return response.status(200).send('unauthorized Request');
+        return response.status(200).json({message:'unauthorized Request'});
     }
 }
