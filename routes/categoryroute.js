@@ -13,15 +13,15 @@ var storage = multer.diskStorage(
     }
 );
 var upload = multer({ storage: storage });
-router.post("/add",upload.single('categoryImage'),
+router.post("/add",upload.single('categoryImage'),middleware.verifyToken,
     body('categoryName').not().isEmpty(),
     categoryController.add
 );
-router.get("/category-list", 
+router.get("/category-list", middleware.verifyToken,
 categoryController.getCategory);
 
 
-router.post("/delete-category", categoryController.deleteCategory);
+router.delete("/delete-category/:id", categoryController.deleteCategory);
 
 router.post("/update", upload.single('categoryImage'),
     body('categoryName').not().isEmpty(),
