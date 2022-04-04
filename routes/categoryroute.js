@@ -21,7 +21,7 @@ router.get("/category-list", middleware.verifyToken,
 categoryController.getCategory);
 
 
-router.delete("/delete-category/:id", categoryController.deleteCategory);
+router.post("/delete-category", categoryController.deleteCategory);
 
 router.post("/update", upload.single('categoryImage'),
     body('categoryName').not().isEmpty(),
